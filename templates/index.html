@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="{% static 'Css/etilos.css' %}">
+    <script src="{% static 'login.js' %}"></script>
+</head>
+<body>
+    <div class="imagen">
+        <div class="wrapper">
+            <div class="logo">
+                <img src="{% static 'img/logo.jpg'%}" alt="">
+            </div>
+            <div class="text-center mt-4 name">
+                ALPALI
+            </div>
+            <form class="p-3 mt-3">
+                <div class="form-field d-flex align-items-center">
+                    <span class="far fa-user"></span>
+                    <input type="text" name="usuar" id="usuar" placeholder="Usuario">
+                </div>
+                <div class="form-field d-flex align-items-center">
+                    <span class="fas fa-key"></span>
+                    <input type="password" name="password" id="password" placeholder="Contraseña">
+                </div>
+                <input  class="btn mt-3" id="submit" onclick="validate()"  value="Ingresar">
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
