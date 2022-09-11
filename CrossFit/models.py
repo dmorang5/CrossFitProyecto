@@ -79,6 +79,8 @@ class Registro(models.Model):
     class Meta:
         verbose_name = "Registro"
         verbose_name_plural = "Registros"
+
+
     def __str__(self):
         return self.idCliente
 

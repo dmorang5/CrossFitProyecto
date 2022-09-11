@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/etilos.css' %}">
+    <title>Eliminar</title>
+</head>
+<body>
+    <section class="form-container">
+    <div class="form-header" >
+      <h1>Eliminacion de Productos</h1>
+    </div>
+    <form method="POST" id="form-venta" class="form">
+      {% csrf_token %}
+      <h2>¿Desea Eliminar el Producto =>
+            <span style="color:red;">{{producto.id}} - {{producto.nombre}}</span>?
+      </h2>
+      <button style="background:red;border-radius:5px;padding:5px;color:white;cursor:pointer;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
+            type="submit">Eliminar
+      </button>
+      <a style="display:block;background:green;border-radius:5px;padding:5px;color:white;cursor:pointer;text-align: center;text-transform: uppercase;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
+        href="{% url 'producto' %}">Cancelar</a>
+    </form>
+
+  </section>
+</body>
+</html>

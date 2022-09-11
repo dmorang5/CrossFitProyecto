@@ -43,12 +43,7 @@
                          <thead class="table bg-warning">
                             <th >#</th>
                             <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Cedula</th>
-                            <th>Telefono</th>
-                            <th>Estatura</th>
-                            <th>Peso</th>
-                            <th>Genero</th>
+                            <th>Categoria</th>
                             <th>Acciones</th>
                          </thead>
                          <tbody class="detalle-est" id="detalle-est">
@@ -56,26 +51,21 @@
                             <tr>
                                 <td>{{cliente.id}}</td>
                                 <td>{{cliente.nombre}}</td>
-                                <td>{{cliente.apellido}}</td>
-                                <td>{{cliente.cedula}}</td>
-                                <td>{{cliente.telefono}}</td>
-                                <td>{{cliente.estatura}}</td>
-                                <td>{{cliente.peso}}</td>
-                                <td>{{cliente.genero}}</td>
+                                <td>{{cliente.categoriaProducto}}</td>
                               <td class="acciones">
-                                <a href="{% url 'editarCliente' cliente.id %}">✏️</a>
-                                <a href="{% url 'eliminarCliente' cliente.id %}">❌</a>
+                                <a href="{% url 'editarProducto' cliente.id %}">✏️</a>
+                                <a href="{% url 'eliminarProducto' cliente.id %}">❌</a>
                               </td>
                             </tr>
                             {% endfor %}
                          </tbody>
                       </table>
-                      <form id="form-cliente" class="form">
+                      <form id="form-producto" class="form">
                         <button
                         id="enviar"
                         type="submit"
                         name="enviar">
-                         <a href="{% url 'nuevoCliente' %}" class="btn btn-success col-12" style="text-align: center">Añadir Cliente</a>
+                         <a href="{% url 'nuevoProducto' %}" class="btn btn-success col-12" style="text-align: center">Añadir Cliente</a>
                         </button>
                       </form>
                    </div>

@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top " style="background-color: #ECF0F1 ">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">
-                <img src="{% static 'img/logo.jpg'%}" alt="" width="70" height="55">
+                <img src="{% static 'img/logo.jpg' %}" alt="" width="70" height="55">
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,7 +44,7 @@
         <div class="col">
           <div class="card bg-dark" style="width: 14rem;">
             <h5 class="card-title pt-2 text-center  bg-light">Mensualidad</h5>
-            <img src="{% static 'img/mensualidad.jpeg'%}" style="height: 168px;" class="card-img-top"  alt="...">
+            <img src="{% static 'img/mensualidad.jpeg' %}" style="height: 168px;" class="card-img-top" alt="...">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-light my-3 mod" data-bs-toggle="modal" data-bs-target="#exampleModal">
   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
@@ -93,7 +93,7 @@
         <div class="col">
           <div class="card bg-dark" style="width: 14rem;">
             <h5 class="card-title pt-2 text-center  bg-light">Ventas</h5>
-            <img src="{% static 'img/aguas.jpeg'%}" style="height: 168px" class="card-img-top"  alt="...">
+            <img src="{% static 'img/aguas.jpeg' %}" style="height: 168px" class="card-img-top" alt="...">
             <div class="card-body   descripcion">
               <center>
                 <a href="{% url 'venta' %}"><button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
@@ -107,7 +107,7 @@
         <div class="col">
             <div class="card bg-dark" style="width: 14rem;">
               <h5 class="card-title pt-2 text-center  bg-light">Clientes</h5>
-              <img src="{% static 'img/cliente.jpeg'%}" style="height: 160px; " class="card-img-top"  alt="...">
+              <img src="{% static 'img/cliente.jpeg' %}" style="height: 160px; " class="card-img-top" alt="...">
               <div class="card-body   descripcion">
                 <center>
                   <a href="{% url 'cliente' %}"><button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
@@ -121,12 +121,26 @@
           <div class="col">
             <div class="card bg-dark" style="width: 14rem;">
               <h5 class="card-title pt-2 text-center  bg-light">Instrumentos</h5>
-              <img src="{% static 'img/mancuerna.jpeg'%}" style="height: 160px; " class="card-img-top"  alt="...">
+              <img src="{% static 'img/mancuerna.jpeg' %}" style="height: 160px; " class="card-img-top" alt="...">
               <div class="card-body   descripcion">
                 <center>
                   <a href="{% url 'accesorio' %}"><button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-bicycle" viewBox="0 0 16 16">
                     <path d="M4 4.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1v.5h4.14l.386-1.158A.5.5 0 0 1 11 4h1a.5.5 0 0 1 0 1h-.64l-.311.935.807 1.29a3 3 0 1 1-.848.53l-.508-.812-2.076 3.322A.5.5 0 0 1 8 10.5H5.959a3 3 0 1 1-1.815-3.274L5 5.856V5h-.5a.5.5 0 0 1-.5-.5zm1.5 2.443-.508.814c.5.444.85 1.054.967 1.743h1.139L5.5 6.943zM8 9.057 9.598 6.5H6.402L8 9.057zM4.937 9.5a1.997 1.997 0 0 0-.487-.877l-.548.877h1.035zM3.603 8.092A2 2 0 1 0 4.937 10.5H3a.5.5 0 0 1-.424-.765l1.027-1.643zm7.947.53a2 2 0 1 0 .848-.53l1.026 1.643a.5.5 0 1 1-.848.53L11.55 8.623z"/>
                   </svg></button></a>
+                </center>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card bg-dark" style="width: 14rem;">
+              <h5 class="card-title pt-2 text-center  bg-light">Productos</h5>
+              <img src="{% static 'img/producto.jpg' %}" style="height: 160px; " class="card-img-top" alt="...">
+              <div class="card-body   descripcion">
+                <center>
+                  <a href="{% url 'producto' %}"><button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                  <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                </svg></button></a>
                 </center>
               </div>
             </div>

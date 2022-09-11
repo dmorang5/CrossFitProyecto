@@ -21,16 +21,6 @@
      <div class="contenedor de icono">
         <i class="bi bi-code"></i>
      </div>
-     <form method="POST" id="form-cargo" class="form">
-         {% csrf_token %}
-         {{ ventaFrom.as_p }}
-         <button
-            id="enviar"
-            type="submit"
-            name="enviar">
-            {{ accion }}
-         </button>
-     </form>
      <div class="container">
         <div class="row">
             <div class="col">
@@ -48,9 +38,9 @@
                          <tbody class="detalle-est" id="detalle-est">
                             {% for venta in ventas  %}
                             <tr>
-                              <td>{{venta.id}}</td>
-                              <td>{{venta.nombre}}</td>
-                              <td>{{ venta.categoria }}</td>
+                                <td>{{venta.id}}</td>
+                                <td>{{venta.nombre}}</td>
+                                <td>{{ venta.categoria }}</td>
                                 <td>{{ venta.precio }}</td>
                               <td>
                                 <a href="{% url 'editarVenta' venta.id %}">✏️</a>
@@ -60,53 +50,15 @@
                          </tbody>
                             {% endfor %}
                     </table>
+                    <form id="form-venta" class="form">
+                        <button
+                        id="enviar"
+                        type="submit"
+                        name="enviar">
+                         <a href="{% url 'nuevaVenta' %}" class="btn btn-success col-12" style="text-align: center">Añadir Venta</a>
+                        </button>
+                      </form>
                 </div>
-                <tr>
-                    <th><a href="{% url 'nuevaVenta' %}"> <button class="btn btn-success col-12" type="button " > Nueva Venta</button></a></th>
-                </tr>
         </div>
     </div>
 </html>
-{#                <table class="table table-sm m-auto bg-light table-borderless rounded-bottom my-4">#}
-{#                    <thead class="table bg-warning" >#}
-{#                        <tr class="table">#}
-{#                            <th>id de ventas </th>#}
-{#                            <th> Nombre del producto </th>#}
-{#                            <th> categoria </th>#}
-{#                            <th> precio </th>#}
-{#                            <th></th>#}
-{#                        </tr>#}
-{#                    </thead>#}
-{#                    <tbody>#}
-{#                        <tr>#}
-{#                            <th  scope="row">85221 </th>#}
-{#                            <th> 7878 </th>#}
-{#                            <th> 1236 </th>#}
-{#                            <th> $3.50 </th>#}
-{#                            <th>#}
-{#                                <a href="{% url 'editarVenta' %}" ><button class="btn btn-success" type="button " >Editar</button>#}
-{#                                </a>#}
-{#                            </th>#}
-{#                        </tr>#}
-{#                        <tr>#}
-{#                            <th>8956 </th>#}
-{#                            <th> 7171 </th>#}
-{#                            <th> 1135 </th>#}
-{#                            <th> $2.50 </th>#}
-{#                            <th>#}
-{#                                <a href="{% url 'editarVenta' %}" ><button class="btn btn-success" type="button " >Editar</button>#}
-{#                                </a>#}
-{#                            </th>#}
-{#                        </tr>#}
-{#                        <tr>#}
-{#                            <th>8956 </th>#}
-{#                            <th> 7171 </th>#}
-{#                            <th> 1135 </th>#}
-{#                            <th> $2.50 </th>#}
-{#                            <th><a href="{% url 'editarVenta' %}" ><button class="btn btn-success" type="button " >Editar</button>#}
-{#                                </a> </th>#}
-{#                        </tr>#}
-{#                    </tbody>#}
-{#                </table>#}
-{#            </div>#}
-{#        </div>#}

@@ -4,25 +4,25 @@
   <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Nueva Venta</title>
+        <title>Editar Producto</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css/etilos.css' %}">
         <link rel="stysheet" href="https://icons.getbootstrap.com/">
   </head >
   <body>
       <header>
-        <a href="{% url 'venta' %}" style="color:black;"></a><button class="btn btn-light rounded my-4 mx-4"></button></a>
+        <a href="{% url 'producto' %}" style="color:black;"></a><button class="btn btn-light rounded my-4 mx-4"></button></a>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
             </svg>
       </header>
       <div class="container">
           <table class="table table-sm m-auto bg-light table-borderless rounded-bottom my-4"></table>
-            <br> <center class="backgraund= bg-warning "><h4> Nueva venta </h4></center><br>
+            <br> <center class="backgraund= bg-warning "><h4> Editar Producto </h4></center><br>
             <form class="table bg-light  m-auto  table-boderless rounded-botton row g-3">
-                    <form method="POST" id="form-venta">
+                    <form method="POST" id="form-producto">
                       {% csrf_token %}
-                      {{ VentaFrom.as_p }}
+                      {{ ProductoFrom.as_p }}
                       <button
                         id="enviar"
                         type="submit"

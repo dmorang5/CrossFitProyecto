@@ -1,11 +1,27 @@
 from django import forms
 from .models import CategoriaProducto, Producto, CategoriaPeso, Accesorios, Membresia, Inscripcion, Registro, Cliente, CrossFit, Venta
+class ProductoFrom(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = ['nombre', 'categoriaProducto']
+        widgets = {
+            'nombre': forms.Select(attrs={
+                'placeholder': 'Ingrese producto',
+                'class': 'form-group',
+                'required': True
+            }),
+            'categoriaProducto': forms.TextInput(attrs={
+                'placeholder': 'Ingrese precio',
+                'class': 'form-group',
+                'required': True
+            }),
+        }
 class VentaFrom(forms.ModelForm):
     class Meta:
         model = Venta
         fields = ['Producto','Inscripcion', 'pagodiario']
         widgets = {
-            'Producto': forms.TextInput(attrs={
+            'Producto': forms.Select(attrs={
                 'placeholder': 'Ingrese producto',
                 'class': 'form-group',
                 'required': True
@@ -18,11 +34,13 @@ class VentaFrom(forms.ModelForm):
             'cantidad': forms.TextInput(attrs={
                 'placeholder': 'Ingrese cantidad',
                 'class': 'form-group',
+                'type': 'number',
                 'required': True
             }),
             'pagodiario': forms.TextInput(attrs={
                 'placeholder': 'Ingrese precio',
                 'class': 'form-group',
+                'type': 'number',
                 'required': True
             }),
         }

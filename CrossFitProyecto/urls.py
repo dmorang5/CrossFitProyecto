@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from CrossFit.views import inicio, principal, nuevaVenta, editarVenta, crearAccesorio, editarAccesorio, venta, \
-    Accesorio, Cliente, nuevoCliente, editarCliente, crearVenta, crearCliente, nuevoAccesorio, eliminarVenta, \
-    eliminarAccesorio, eliminarCliente
+from CrossFit.views import inicio, principal, crearVenta, editarVenta, eliminarVenta, crearAccesorio, editarAccesorio, \
+    eliminarAccesorio, crearCliente, editarCliente, eliminarCliente, nuevoCliente, nuevaVenta, nuevoAccesorio, venta, \
+    Accesorio, Cliente, eliminarProducto, crearProducto, editarProducto, nuevoProducto, Producto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,17 +28,24 @@ urlpatterns = [
     path('nuevaVenta/',nuevaVenta,name="nuevaVenta" ),
     path('editarVenta/<int:id>', editarVenta, name="editarVenta"),
     path('crearVenta/', crearVenta, name="crearVenta"),
-    path('eliminarVenta/', eliminarVenta, name="eliminarVenta"),
+    path('eliminarVenta/<int:id>', eliminarVenta, name="eliminarVenta"),
     #Accesorio
     path('accesorio/',Accesorio,name="accesorio" ),
     path('nuevoAccesorio/', nuevoAccesorio, name="nuevoAccesorio"),
     path('crearAccesorio/', crearAccesorio, name="crearAccesorio"),
     path('editarAccesorio/<int:id>', editarAccesorio, name="editarAccesorio"),
-    path('eliminarAccesorio/', eliminarAccesorio, name="eliminarAccesorio"),
+    path('eliminarAccesorio/<int:id>', eliminarAccesorio, name="eliminarAccesorio"),
     #Cliente
     path('cliente/',Cliente,name="cliente" ),
     path('nuevoCliente/', nuevoCliente, name="nuevoCliente"),
     path('editarCliente/<int:id>', editarCliente, name="editarCliente"),
     path('crearCliente/', crearCliente, name="crearCliente"),
-    path('eliminarCliente/', eliminarCliente, name="eliminarCliente"),
+    path('eliminarCliente/<int:id>', eliminarCliente, name="eliminarCliente"),
+    #Producto
+    path('producto/',Producto,name="producto" ),
+    path('nuevoProducto/', nuevoProducto, name="nuevoProducto"),
+    path('editarProducto/<int:id>', editarProducto, name="editarProducto"),
+    path('crearProducto/', crearProducto, name="crearProducto"),
+    path('eliminarProducto/<int:id>', eliminarProducto, name="eliminarProducto"),
+
 ]
