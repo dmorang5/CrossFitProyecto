@@ -41,9 +41,18 @@ def editarVenta(request):
         error = e
         ventas = Venta.objects.all()
         return render(request, "pages/editventa.html", {'ventaForm': venta_from, 'venta': ventas, 'accion': 'Actualizar'})
+def eliminarVenta(request,id):
+    venta = Venta.objects.get(id=id)
+    if request.method == 'POST':
+        venta.delete()
+        return redirect("venta")
+    return render(request,'pages/eliminarVenta.html',{'venta':venta})
 
 def Accesorio(request):
     return render(request, "pages/equipos.html")
+
+def nuevoAccesorio(request):
+    return render(request, "pages/nuevoEquipo.html")
 
 def crearAccesorio(request):
     if request.method == "POST":
@@ -55,7 +64,7 @@ def crearAccesorio(request):
             print("entro por get")
         accesorio_form = VentaFrom()
         accesorios = Accesorios.objects.all()
-        return render(request, "pages/equipos.html", {'AccesorioFrom': accesorio_form, 'accesorio': accesorios, 'accion': 'Guardar'})
+        return render(request, "pages/nuevoEquipo.html", {'AccesorioFrom': accesorio_form, 'accesorio': accesorios, 'accion': 'Guardar'})
 
 def editarAccesorio(request):
     error, venta_form = None, None
@@ -72,6 +81,13 @@ def editarAccesorio(request):
         error = e
         accesorios = Accesorios.objects.all()
         return render(request, "pages/equiposedit.html", {'accesorioFrom': accesorio_form, 'accesorio': accesorios, 'accion': 'Actualizar'})
+
+def eliminarAccesorio(request,id):
+    accesorio = Accesorios.objects.get(id=id)
+    if request.method == 'POST':
+        accesorio.delete()
+        return redirect("accesorio")
+    return render(request,'pages/eliminarEquipo.html',{'accesorio':accesorio})
 
 def Cliente(request):
     return render(request, "pages/cliente.html")
@@ -106,3 +122,10 @@ def editarCliente(request):
         error = e
         clientes = Cliente.objects.all()
         return render(request, "pages/editarcliente.html", {'ClienteFrom': cliente_form, 'cliente': clientes, 'accion': 'Actualizar'})
+
+def eliminarCliente(request,id):
+    cliente = Cliente().objects.get(id=id)
+    if request.method == 'POST':
+        cliente.delete()
+        return redirect("cliente")
+    return render(request,'pages/eliminarCliente.html',{'cliente':cliente})

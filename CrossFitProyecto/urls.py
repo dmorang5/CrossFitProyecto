@@ -15,23 +15,30 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-#from BDCrossFit.views import
 from CrossFit.views import inicio, principal, nuevaVenta, editarVenta, crearAccesorio, editarAccesorio, venta, \
-    Accesorio, Cliente, nuevoCliente, editarCliente, crearVenta, crearCliente
+    Accesorio, Cliente, nuevoCliente, editarCliente, crearVenta, crearCliente, nuevoAccesorio, eliminarVenta, \
+    eliminarAccesorio, eliminarCliente
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',inicio,name="inicio" ),
     path('principal/', principal, name="principal"),
+    #Venta
     path('venta/', venta, name="venta"),
     path('nuevaVenta/',nuevaVenta,name="nuevaVenta" ),
-    path('editarVenta/', editarVenta, name="editarVenta"),
+    path('editarVenta/<int:id>', editarVenta, name="editarVenta"),
     path('crearVenta/', crearVenta, name="crearVenta"),
+    path('eliminarVenta/', eliminarVenta, name="eliminarVenta"),
+    #Accesorio
     path('accesorio/',Accesorio,name="accesorio" ),
+    path('nuevoAccesorio/', nuevoAccesorio, name="nuevoAccesorio"),
     path('crearAccesorio/', crearAccesorio, name="crearAccesorio"),
     path('editarAccesorio/<int:id>', editarAccesorio, name="editarAccesorio"),
+    path('eliminarAccesorio/', eliminarAccesorio, name="eliminarAccesorio"),
+    #Cliente
     path('cliente/',Cliente,name="cliente" ),
     path('nuevoCliente/', nuevoCliente, name="nuevoCliente"),
     path('editarCliente/<int:id>', editarCliente, name="editarCliente"),
     path('crearCliente/', crearCliente, name="crearCliente"),
+    path('eliminarCliente/', eliminarCliente, name="eliminarCliente"),
 ]

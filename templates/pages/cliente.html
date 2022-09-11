@@ -38,44 +38,47 @@
       <div class="container">
             <div class="row">
                 <div class="col">
-                   <div class="consulta none table-responsive" id="consulta">
-                    <table class="table table-sm m-auto bg-light table-borderless rounded-bottom my-4" id="consulta-est" border="0">
-                        <thead class="table bg-warning">
-                             <tr class="table">
-                                    <th >#</th>
-                                    <th>Nombre</th>
-                                    <th>Apellido</th>
-                                    <th>Cedula</th>
-                                     <th>Telefono</th>
-                                     <th>Estatura</th>
-                                     <th>Peso</th>
-                                     <th>Genero</th>
-                                    <th>Acciones</th>
-                             </tr>
-                        </thead>
-                        <tbody class="detalle-est" id="detalle-est">
-                                {% for cliente in clientes  %}
-                                    <tr>
-                                        <td>{{cliente.id}}</td>
-                                        <td>{{cliente.nombre}}</td>
-                                        <td>{{cliente.apellido}}</td>
-                                        <td>{{cliente.cedula}}</td>
-                                        <td>{{cliente.telefono}}</td>
-                                        <td>{{cliente.estatura}}</td>
-                                        <td>{{cliente.peso}}</td>
-                                        <td>{{cliente.genero}}</td>
-                                            <td class="acciones">
-                                              <a href="{% url 'editarCliente' cliente.id %}">✏️</a>
-                                              <a href="{% url 'eliminarCliente' cliente.id %}">❌</a>
-                                            </td>
-                                    </tr>
-                                </tbody>
-                                {% endfor %}
-                        </table>
-                    </div>
-                        <tr>
-                            <th><a href="{% url 'nuevoCliente' %}"> <button class="btn btn-success col-12" type="button " > Nuevo Cliente</button></a></th>
-                        </tr>
+                    <div class="consulta none table-responsive" id="consulta">
+                      <table class="table table-sm m-auto bg-light table-borderless rounded-bottom my-4" id="consulta-est" border="0">
+                         <thead class="table bg-warning">
+                            <th >#</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Cedula</th>
+                            <th>Telefono</th>
+                            <th>Estatura</th>
+                            <th>Peso</th>
+                            <th>Genero</th>
+                            <th>Acciones</th>
+                         </thead>
+                         <tbody class="detalle-est" id="detalle-est">
+                            {% for cliente in clientes  %}
+                            <tr>
+                                <td>{{cliente.id}}</td>
+                                <td>{{cliente.nombre}}</td>
+                                <td>{{cliente.apellido}}</td>
+                                <td>{{cliente.cedula}}</td>
+                                <td>{{cliente.telefono}}</td>
+                                <td>{{cliente.estatura}}</td>
+                                <td>{{cliente.peso}}</td>
+                                <td>{{cliente.genero}}</td>
+                              <td class="acciones">
+                                <a href="{% url 'editarCliente' cliente.id %}">✏️</a>
+                                <a href="{% url 'eliminarCliente' cliente.id %}">❌</a>
+                              </td>
+                            </tr>
+                            {% endfor %}
+                         </tbody>
+                      </table>
+                      <form id="form-cargo" class="form">
+                        <button
+                        id="enviar"
+                        type="submit"
+                        name="enviar">
+                         <a href="{% url 'nuevoCliente' %}"><button class="btn btn-success col-12" type="button " >Añadir Cliente</button></a>
+                        </button>
+                      </form>
+                   </div>
                 </div>
             </div>
       </div>
