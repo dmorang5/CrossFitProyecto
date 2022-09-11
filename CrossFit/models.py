@@ -43,6 +43,7 @@ class Accesorios(models.Model):
     idAccesorio = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100, blank=False, null=True)
     categoriaPeso = models.ForeignKey(CategoriaPeso, on_delete=models.CASCADE)
+    descripcion = models.CharField(max_length=100, blank=False, null=True)
 
     class Meta:
         verbose_name = "Accesorio"
@@ -110,9 +111,8 @@ class Venta(models.Model):
     idVenta = models.AutoField(primary_key=True)
     Producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     Inscripcion = models.ForeignKey(Inscripcion, on_delete=models.CASCADE)
-
+    cantidad = models.CharField(max_length=255, blank=True, null=True)
     pagodiario = models.DecimalField(max_digits=10, decimal_places=2)
-
 
     class Meta:
         verbose_name = "Venta"

@@ -11,7 +11,12 @@ class VentaFrom(forms.ModelForm):
                 'required': True
             }),
             'Inscripcion': forms.TextInput(attrs={
-                'placeholder': 'Ingrese categoria',
+                'placeholder': 'Ingrese',
+                'class': 'form-group',
+                'required': True
+            }),
+            'cantidad': forms.TextInput(attrs={
+                'placeholder': 'Ingrese cantidad',
                 'class': 'form-group',
                 'required': True
             }),
@@ -68,7 +73,7 @@ class ClienteFrom(forms.ModelForm):
 class AccesorioFrom(forms.ModelForm):
     class Meta:
         model = Accesorios
-        fields = ['nombre', 'categoriaPeso']
+        fields = ['nombre', 'categoriaPeso', 'descripcion']
         widgets = {
             'nombre': forms.TextInput(attrs={
                 'placeholder': 'Ingrese el nombre del producto',
@@ -77,6 +82,11 @@ class AccesorioFrom(forms.ModelForm):
             }),
             'Categoria': forms.TextInput(attrs={
                 'placeholder': 'Ingrese la categoria',
+                'class': 'form-group',
+                'required': True
+            }),
+            'Descripcion': forms.TextInput(attrs={
+                'placeholder': 'Ingrese la descripcion',
                 'class': 'form-group',
                 'required': True
             }),

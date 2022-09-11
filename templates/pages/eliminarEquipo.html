@@ -9,18 +9,18 @@
 <body>
     <section class="form-container">
     <div class="form-header" >
-      <h1>Eliminacion de Clientes</h1>
+      <h1>Eliminacion de Equipos</h1>
     </div>
     <form method="POST" id="form-cargo" class="form">
       {% csrf_token %}
-      <h2>¿Desea Eliminar el Cliente =>
-            <span style="color:red;">{{cliente.id}} - {{cliente.descripcion}}</span>?
+      <h2>¿Desea Eliminar el Equipo =>
+            <span style="color:red;">{{accesorio.id}} - {{accesorio.descripcion}}</span>?
       </h2>
       <button style="background:red;border-radius:5px;padding:5px;color:white;cursor:pointer;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
             type="submit">Eliminar
       </button>
       <a style="display:block;background:green;border-radius:5px;padding:5px;color:white;cursor:pointer;text-align: center;text-transform: uppercase;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-        href="{% url 'cliente' %}">Cancelar</a>
+        href="{% url 'Accesorio' %}">Cancelar</a>
     </form>
   </section>
 </body>
