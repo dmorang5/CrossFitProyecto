@@ -32,6 +32,6 @@ urlpatterns = [
     path('editarAccesorio/<int:id>', editarAccesorio, name="editarAccesorio"),
     path('cliente/',Cliente,name="cliente" ),
     path('nuevoCliente/', nuevoCliente, name="nuevoCliente"),
-    path('crearCliente/', crearCliente, name="crearCliente"),
     path('editarCliente/<int:id>', editarCliente, name="editarCliente"),
+    path('crearCliente/', crearCliente, name="crearCliente"),
 ]

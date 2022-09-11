@@ -13,16 +13,6 @@ def venta(request):
     return render(request, "pages/ventas.html")
 
 def nuevaVenta(request):
-    # if request.method == "POST":
-    #     print("entro por post")
-    #     venta_from = VentaFrom(request.POST)
-    #     if venta_from.is_valid():
-    #         venta_from.save()
-    #     else:
-    #         print("entro por get")
-    #     venta_from = VentaFrom()
-    #     ventas = Venta.objects.all()
-        # return render(request, "pages/nuevaventa.html", {'ventaFrom': venta_from, 'ventas': ventas, 'accion': 'Guardar'})
         return render(request,"pages/nuevaventa.html")
 def crearVenta(request):
     if request.method == "POST":
