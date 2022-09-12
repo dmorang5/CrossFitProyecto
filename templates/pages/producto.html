@@ -17,9 +17,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="icon" href="{% static 'img/logo.jpg' %}">
-    <title>Cliente</title>
+    <title>Producto</title>
     <link rel="stylesheet" href={% static 'css/etilos.css' %}>
-{#    <link rel="stylesheet" href="{% static 'Css/form.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'css/form.css' %}">#}
 </head>
 <body>
   <header>
@@ -44,29 +44,30 @@
                             <th >#</th>
                             <th>Nombre</th>
                             <th>Categoria</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                          </thead>
                          <tbody class="detalle-est" id="detalle-est">
-                            {% for cliente in clientes  %}
-                            <tr>
-                                <td>{{cliente.id}}</td>
-                                <td>{{cliente.nombre}}</td>
-                                <td>{{cliente.categoriaProducto}}</td>
-                              <td class="acciones">
-                                <a href="{% url 'editarProducto' cliente.id %}">✏️</a>
-                                <a href="{% url 'eliminarProducto' cliente.id %}">❌</a>
-                              </td>
-                            </tr>
+                            {% for producto in productos  %}
+                                <tr>
+                                    <td>{{producto.idProducto}}</td>
+                                    <td>{{producto.nombre}}</td>
+                                    <td>{% if producto.estado %}
+                                        Disponible
+                                        {% else %}
+                                        No disponible
+                                        {% endif %}
+                                    </td>
+                                  <td class="acciones">
+                                    <a href="{% url 'editarProducto' cliente.id %}">✏️</a>
+                                    <a href="{% url 'eliminarProducto' cliente.id %}">❌</a>
+                                  </td>
+                                </tr>
                             {% endfor %}
                          </tbody>
                       </table>
                       <form id="form-producto" class="form">
-                        <button
-                        id="enviar"
-                        type="submit"
-                        name="enviar">
-                         <a href="{% url 'nuevoProducto' %}" class="btn btn-success col-12" style="text-align: center">Añadir Cliente</a>
-                        </button>
+                        <a href="{% url 'nuevoProducto' %}" class="btn btn-success col-12" style="text-align: center">Añadir Producto</a>
                       </form>
                    </div>
                 </div>

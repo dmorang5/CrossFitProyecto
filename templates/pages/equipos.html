@@ -49,7 +49,7 @@
                          <tbody class="detalle-est" id="detalle-est">
                             {% for accesorio in accesorios  %}
                             <tr>
-                                <td>{{accesorio.id}}</td>
+                                <td>{{accesorio.idAccesorio}}</td>
                                 <td>{{accesorio.nombre}}</td>
                                 <td>{{accesorio.categoria}}</td>
                                 <td>{{accesorio.descripcion}}</td>
@@ -61,13 +61,8 @@
                             {% endfor %}
                          </tbody>
                       </table>
-                      <form id="form-accesorio" class="form">
-                        <button
-                        id="enviar"
-                        type="submit"
-                        name="enviar">
-                         <a href="{% url 'nuevoAccesorio' %}" class="btn btn-success col-12" style="text-align: center">Añadir Equipo</a>
-                        </button>
+                      <form id="form-producto" class="form">
+                        <a href="{% url 'nuevoAccesorio' %}" class="btn btn-success col-12" style="text-align: center">Añadir Producto</a>
                       </form>
                    </div>
                 </div>

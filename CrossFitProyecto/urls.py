@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from CrossFit.views import inicio, principal, crearVenta, editarVenta, eliminarVenta, crearAccesorio, editarAccesorio, \
     eliminarAccesorio, crearCliente, editarCliente, eliminarCliente, nuevoCliente, nuevaVenta, nuevoAccesorio, venta, \
-    Accesorio, Cliente, eliminarProducto, crearProducto, editarProducto, nuevoProducto, Producto
+    Accesorio, Cliente, eliminarProducto, editarProducto, nuevoProducto, ProductoForm, crearProducto
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,10 +43,9 @@ urlpatterns = [
     path('crearCliente/', crearCliente, name="crearCliente"),
     path('eliminarCliente/<int:id>', eliminarCliente, name="eliminarCliente"),
     #Producto
-    path('producto/',Producto,name="producto" ),
+    path('CrearProducto/',ProductoForm,name="producto" ),
+    path ('FormProducto/',crearProducto, name="FormProducto"),
     path('nuevoProducto/', nuevoProducto, name="nuevoProducto"),
     path('editarProducto/<int:id>', editarProducto, name="editarProducto"),
-    path('crearProducto/', crearProducto, name="crearProducto"),
     path('eliminarProducto/<int:id>', eliminarProducto, name="eliminarProducto"),
-
 ]

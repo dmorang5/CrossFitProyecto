@@ -11,10 +11,21 @@ def principal(request):
     return render(request, "pages/Principal.html")
 
 def venta(request):
-    return render(request, "pages/ventas.html")
+    ventas = Venta.objects.all()
+    return render(request, "pages/ventas.html", {"ventas": ventas})
 
 def nuevaVenta(request):
-        return render(request, "pages/nuevaventa.html")
+    data = {
+        'formv': VentaFrom()
+    }
+    if request.method == 'POST':
+        formulario = VentaFrom(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "mensaje enviado"
+        else:
+            data["formv"] = formulario
+    return render(request, "pages/nuevaventa.html", data)
 
 def crearVenta(request):
     if request.method == "POST":
@@ -27,7 +38,6 @@ def crearVenta(request):
         venta_from = VentaFrom()
         ventas = Venta.objects.all()
     return render(request, "pages/nuevaventa.html", {'VentaFrom': venta_from, 'ventas': ventas, 'accion': 'Guardar'})
-
 
 def editarVenta(request):
     error, venta_from = None, None
@@ -55,7 +65,17 @@ def Accesorio(request):
     return render(request, "pages/equipos.html")
 
 def nuevoAccesorio(request):
-    return render(request, "pages/nuevoequipo.html")
+    data = {
+        'form': AccesorioFrom()
+    }
+    if request.method == 'POST':
+        formulario = AccesorioFrom(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "mensaje enviado"
+        else:
+            data["form"] = formulario
+    return render(request, "pages/nuevoequipo.html", data)
 
 def crearAccesorio(request):
     if request.method == "POST":
@@ -93,10 +113,21 @@ def eliminarAccesorio(request,id):
     return render(request,'pages/eliminarEquipo.html',{'accesorio':accesorio})
 
 def Cliente(request):
-    return render(request, "pages/cliente.html")
+    clientes = Cliente.objects.all()
+    return render(request, "pages/cliente.html",{"clientes": clientes})
 
 def nuevoCliente(request):
-    return render(request, "pages/nuevocliente.html")
+    data = {
+        'form': ClienteFrom()
+    }
+    if request.method == 'POST':
+        formulario = ClienteFrom(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "mensaje enviado"
+        else:
+            data["form"] = formulario
+    return render(request, "pages/nuevocliente.html", data)
 
 def crearCliente(request):
     if request.method == "POST":
@@ -133,24 +164,34 @@ def eliminarCliente(request,id):
         return redirect("cliente")
     return render(request,'pages/eliminarCliente.html',{'cliente':cliente})
 
-def Producto(request):
-    return render(request, "pages/producto.html")
+def ProductoForm(request):
+    productos = Producto.objects.all()
+    return render(request, "pages/producto.html",{"productos": productos})
 
 def nuevoProducto(request):
-    return render(request, "pages/nuevoProducto.html")
+    data = {
+        'form': ProductoFrom()
+    }
+    if request.method == 'POST':
+        formulario = ProductoFrom(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"]="mensaje enviado"
+        else:
+            data["form"]=formulario
+    return render(request, "pages/nuevoProducto.html", data)
 
 def crearProducto(request):
-    if request.method == "POST":
-        print("entro por post")
-        producto_form = ProductoFrom(request.POST)
-        if producto_form.is_valid():
-            producto_form.save()
-        else:
-            print("entro por get")
-        producto_form = VentaFrom()
-        productos = Producto.objects.all()
-        return render(request, "pages/nuevoProducto.html", {'ProductoFrom': producto_form, 'producto': productos, 'accion': 'Guardar'})
-
+    # if request.method == "POST":
+    #     print("entro por post")
+    #     producto_form = ProductoFrom(request.POST)
+    #     if producto_form.is_valid():
+    #         producto_form.save()
+    #     else:
+    #         print("entro por get")
+    #     producto_form = VentaFrom()
+    #     productos = Producto.objects.all()
+    return render(request, "pages/producto.html")
 def editarProducto(request):
     error, producto_form = None, None
     try:

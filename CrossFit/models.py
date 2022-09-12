@@ -1,7 +1,26 @@
 from django.db import models
-
-# Create your models here.
-
+producto_estado = [
+    (1, "Disponible"),
+    (2, 'No disponible')
+]
+genero = [
+    (1, "Masculino"),
+    (2, "Femenino")
+]
+inscripcion = [
+    (1, "Mensual"),
+    (2, "Semanal")
+]
+catePeso = [
+    (1, "10kg"),
+    (2, "20kg"),
+    (3, "30kg")
+]
+accesorio = [
+    (1, 'mancuerna'),
+    (2, 'pesa'),
+    (3, 'cuerda')
+]
 class CategoriaProducto(models.Model):
     idCategoriaProducto = models.AutoField(primary_key=True)
     categoriaProducto = models.CharField(max_length=100, blank=False, null=True)
@@ -17,7 +36,11 @@ class CategoriaProducto(models.Model):
 class Producto(models.Model):
     idProducto = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100, blank=False, null=True)
-    categoriaProducto = models.ForeignKey(CategoriaProducto, on_delete=models.CASCADE)
+    estado = models.IntegerField(
+        null=False, blank=False,
+        choices= producto_estado,
+        default=1
+    )
 
     class Meta:
         verbose_name = "Producto"
@@ -41,8 +64,14 @@ class CategoriaPeso(models.Model):
 
 class Accesorios(models.Model):
     idAccesorio = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100, blank=False, null=True)
-    categoriaPeso = models.ForeignKey(CategoriaPeso, on_delete=models.CASCADE)
+    nombre = models.IntegerField(
+         null=False, blank=False,
+         choices= accesorio,
+         default=1)
+    categoriaPeso = models.IntegerField(
+         null=False, blank=False,
+         choices= catePeso,
+         default=1)
     descripcion = models.CharField(max_length=100, blank=False, null=True)
 
     class Meta:
@@ -61,13 +90,16 @@ class Cliente(models.Model):
     telefono = models.CharField(max_length=10, blank=True, null=True)
     estatura = models.CharField(max_length=100, blank=True, null=True)
     peso = models.CharField(max_length=100, blank=True, null=True)
-    genero = models.CharField(max_length=100, blank=True, null=True)
-
+    genero = models.IntegerField(
+        null=False, blank=False,
+        choices= genero,
+        default=1
+    )
     class Meta:
         verbose_name = "Cliente"
         verbose_name_plural = "Clientes"
     def __str__(self):
-        return self.nombre, self.apellido, self.cedula
+        return self.nombre
 
 #Registro
 class Registro(models.Model):
@@ -100,7 +132,10 @@ class Inscripcion(models.Model):
     idInscripcion = models.AutoField(primary_key=True)
     idCliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     fechaIns = models.DateTimeField(auto_now_add=True, auto_now=False)
-    idMembresia = models.ForeignKey(Membresia, on_delete=models.CASCADE)
+    Membresia = models.IntegerField(
+         null=False, blank=False,
+         choices= inscripcion,
+         default=1)
 
     class Meta:
         verbose_name = "Inscripcion"
@@ -112,15 +147,14 @@ class Inscripcion(models.Model):
 class Venta(models.Model):
     idVenta = models.AutoField(primary_key=True)
     Producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    Inscripcion = models.ForeignKey(Inscripcion, on_delete=models.CASCADE)
     cantidad = models.CharField(max_length=255, blank=True, null=True)
-    pagodiario = models.DecimalField(max_digits=10, decimal_places=2)
+    descripcion = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         verbose_name = "Venta"
         verbose_name_plural = "Ventas"
     def __str__(self):
-        return self.Producto, self.Inscripcion, self.pagodiario
+        return self.descripcion
 
 #Crossfit
 class CrossFit(models.Model):
