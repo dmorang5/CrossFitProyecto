@@ -58,23 +58,23 @@ class AccesorioFrom(forms.ModelForm):
     class Meta:
         model = Accesorios
         fields = ['nombre', 'categoriaPeso', 'descripcion']
-        # widgets = {
-        #     'nombre': forms.TextInput(attrs={
-        #         'placeholder': 'Ingrese el nombre del producto',
-        #         'class': 'form-group',
-        #         'required': True
-        #     }),
-        #     'Categoria': forms.TextInput(attrs={
-        #         'placeholder': 'Ingrese la categoria',
-        #         'class': 'form-group',
-        #         'required': True
-        #     }),
-        #     'Descripcion': forms.TextInput(attrs={
-        #         'placeholder': 'Ingrese la descripcion',
-        #         'class': 'form-group',
-        #         'required': True
-        #     }),
-        # }
+        widgets = {
+            'nombre': forms.TextInput(attrs={
+                'placeholder': 'Ingrese el nombre del producto',
+                'class': 'form-group',
+                'required': True
+            }),
+            'Categoria': forms.TextInput(attrs={
+                'placeholder': 'Ingrese la categoria',
+                'class': 'form-group',
+                'required': True
+            }),
+            'Descripcion': forms.TextInput(attrs={
+                'placeholder': 'Ingrese la descripcion',
+                'class': 'form-group',
+                'required': True
+            }),
+        }
 class MembresiaFrom(forms.ModelForm):
     class Meta:
         model = Membresia

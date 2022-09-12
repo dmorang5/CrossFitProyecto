@@ -15,37 +15,34 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from CrossFit.views import inicio, principal, crearVenta, editarVenta, eliminarVenta, crearAccesorio, editarAccesorio, \
-    eliminarAccesorio, crearCliente, editarCliente, eliminarCliente, nuevoCliente, nuevaVenta, nuevoAccesorio, venta, \
-    Accesorio, Cliente, eliminarProducto, editarProducto, nuevoProducto, ProductoForm, crearProducto
+from CrossFit.views import CrossFitView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',inicio,name="inicio" ),
-    path('principal/', principal, name="principal"),
+    path('',CrossFitView.inicio,name="inicio" ),
+    path('principal/', CrossFitView.principal, name="principal"),
     #Venta
-    path('venta/', venta, name="venta"),
-    path('nuevaVenta/',nuevaVenta,name="nuevaVenta" ),
-    path('editarVenta/<int:id>', editarVenta, name="editarVenta"),
-    path('crearVenta/', crearVenta, name="crearVenta"),
-    path('eliminarVenta/<int:id>', eliminarVenta, name="eliminarVenta"),
+    path('venta/', CrossFitView.venta, name="venta"),
+    path('nuevaVenta/',CrossFitView.nuevaVenta,name="nuevaVenta" ),
+    path('editarVenta/<int:id>', CrossFitView.editarVenta, name="editarVenta"),
+    path('actualizarVenta<int:id>', CrossFitView.actualizarVenta, name="actualizarVenta"),
+    path('crearVenta/', CrossFitView.crearVenta, name="crearVenta"),
+    path('eliminarVenta/', CrossFitView.eliminarVenta, name="eliminarVenta"),
     #Accesorio
-    path('accesorio/',Accesorio,name="accesorio" ),
-    path('nuevoAccesorio/', nuevoAccesorio, name="nuevoAccesorio"),
-    path('crearAccesorio/', crearAccesorio, name="crearAccesorio"),
-    path('editarAccesorio/<int:id>', editarAccesorio, name="editarAccesorio"),
-    path('eliminarAccesorio/<int:id>', eliminarAccesorio, name="eliminarAccesorio"),
+    path('accesorio/',CrossFitView.Accesorio,name="accesorio" ),
+    path ('registrarAccesorio/', CrossFitView.AccesorioR, name="registrarAccesorio"),
+    path ('guardarAccesorio/', CrossFitView.procesarAccesorio, name="guardarAccesorio"),
     #Cliente
-    path('cliente/',Cliente,name="cliente" ),
-    path('nuevoCliente/', nuevoCliente, name="nuevoCliente"),
-    path('editarCliente/<int:id>', editarCliente, name="editarCliente"),
-    path('crearCliente/', crearCliente, name="crearCliente"),
-    path('eliminarCliente/<int:id>', eliminarCliente, name="eliminarCliente"),
+    path('cliente/',CrossFitView.Cliente,name="cliente" ),
+    path('nuevoCliente/', CrossFitView.nuevoCliente, name="nuevoCliente"),
+    path('editarCliente/<int:id>', CrossFitView.editarCliente, name="editarCliente"),
+    path('crearCliente/', CrossFitView.crearCliente, name="crearCliente"),
+    path('eliminarCliente/<int:id>', CrossFitView.eliminarCliente, name="eliminarCliente"),
     #Producto
-    path('CrearProducto/',ProductoForm,name="producto" ),
-    path ('FormProducto/',crearProducto, name="FormProducto"),
-    path('nuevoProducto/', nuevoProducto, name="nuevoProducto"),
-    path('editarProducto/<int:id>', editarProducto, name="editarProducto"),
-    path('eliminarProducto/<int:id>', eliminarProducto, name="eliminarProducto"),
+    path('CrearProducto/',CrossFitView.ProductoForm,name="producto" ),
+    path ('FormProducto/',CrossFitView.crearProducto, name="FormProducto"),
+    path('nuevoProducto/', CrossFitView.nuevoProducto, name="nuevoProducto"),
+    path('editarProducto/<int:id>', CrossFitView.editarProducto, name="editarProducto"),
+    path('eliminarProducto/<int:id>', CrossFitView.eliminarProducto, name="eliminarProducto"),
 ]

@@ -20,10 +20,17 @@
           <table class="table table-sm m-auto bg-light table-borderless rounded-bottom my-4"></table>
             <br> <center class="backgraund= bg-warning "><h4> Nuevo Equipo </h4></center><br>
             <form class="table bg-light  m-auto  table-boderless rounded-botton row g-3">
-                <form action="" class="table bg-light  m-auto  table-boderless rounded-botton row g-3 " method="post">
+                <form action="{% url 'guardarAccesorio' %}" class="table bg-light  m-auto  table-boderless rounded-botton row g-3 " method="POST">
                     {% csrf_token %}
+                    {% if mensaje %}
+                        <div class="alert alert-success" role="alert">
+                        Registro exitoso
+                        </div>
+                    {% endif %}
+
                     {{ form }}
-                    <input type="submit" class="btn btn-primary" name="btnEnviar" id="btnEnviar" value="Enviar">
+
+                    <button type="button" class="btn btn-success">Guardar</button>
                 </form>
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
             </form>

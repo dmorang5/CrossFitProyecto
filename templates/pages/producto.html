@@ -59,15 +59,20 @@
                                         {% endif %}
                                     </td>
                                   <td class="acciones">
-                                    <a href="{% url 'editarProducto' cliente.id %}">✏️</a>
-                                    <a href="{% url 'eliminarProducto' cliente.id %}">❌</a>
+                                    <a href="{% url 'editarProducto' producto.id %}"> ✏️</a>
+                                    <a href="{% url 'eliminarProducto'  %}">❌</a>
                                   </td>
                                 </tr>
                             {% endfor %}
                          </tbody>
                       </table>
                       <form id="form-producto" class="form">
-                        <a href="{% url 'nuevoProducto' %}" class="btn btn-success col-12" style="text-align: center">Añadir Producto</a>
+                        <button
+                        id="enviar"
+                        type="submit"
+                        name="enviar">
+                         <a href="{% url 'nuevoProducto' %}" class="btn btn-success col-12" style="text-align: center">Añadir Producto</a>
+                        </button>
                       </form>
                    </div>
                 </div>

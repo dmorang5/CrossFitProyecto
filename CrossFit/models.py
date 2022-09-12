@@ -21,17 +21,6 @@ accesorio = [
     (2, 'pesa'),
     (3, 'cuerda')
 ]
-class CategoriaProducto(models.Model):
-    idCategoriaProducto = models.AutoField(primary_key=True)
-    categoriaProducto = models.CharField(max_length=100, blank=False, null=True)
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
-
-    class Meta:
-        verbose_name = "Categoria"
-        verbose_name_plural = "Categorias"
-
-    def __str__(self):
-        return self.categoriaProducto
 
 class Producto(models.Model):
     idProducto = models.AutoField(primary_key=True)
@@ -50,17 +39,6 @@ class Producto(models.Model):
         return self.nombre
 
 #Accesorios
-class CategoriaPeso(models.Model):
-    idCategoriaPeso = models.AutoField(primary_key=True)
-    categoriaPeso = models.CharField(max_length=100, blank=False, null=True)
-    descripcion = models.CharField(max_length=100, blank=True, null=True)
-
-    class Meta:
-        verbose_name = "Categoria"
-        verbose_name_plural = "Categorias"
-
-    def __str__(self):
-        return self.descripcion
 
 class Accesorios(models.Model):
     idAccesorio = models.AutoField(primary_key=True)
@@ -79,8 +57,7 @@ class Accesorios(models.Model):
         verbose_name_plural = "Accesorios"
 
     def __str__(self):
-        return self.nombre
-
+        return self.descripcion
 #Cliente
 class Cliente(models.Model):
     idCliente = models.AutoField(primary_key=True)
@@ -102,19 +79,6 @@ class Cliente(models.Model):
         return self.nombre
 
 #Registro
-class Registro(models.Model):
-    idRegistro = models.AutoField(primary_key=True)
-    idCliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    horaIng = models.TimeField(auto_now_add=False, auto_now=True)
-    horaSalida = models.TimeField(auto_now_add=False, auto_now=True)
-
-    class Meta:
-        verbose_name = "Registro"
-        verbose_name_plural = "Registros"
-
-
-    def __str__(self):
-        return self.idCliente
 
 #Inscripcion y membresia
 class Membresia(models.Model):
@@ -125,8 +89,7 @@ class Membresia(models.Model):
     class Meta:
         verbose_name = "Membresia"
         verbose_name_plural = "Membresias"
-    def __str__(self):
-        return self.membresia
+
 
 class Inscripcion(models.Model):
     idInscripcion = models.AutoField(primary_key=True)
@@ -153,18 +116,7 @@ class Venta(models.Model):
     class Meta:
         verbose_name = "Venta"
         verbose_name_plural = "Ventas"
+
     def __str__(self):
         return self.descripcion
 
-#Crossfit
-class CrossFit(models.Model):
-    idCrossFit = models.AutoField(primary_key=True)
-    idAccesorios = models.ForeignKey(Accesorios, on_delete=models.CASCADE)
-    idProducto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    idInscripcion = models.ForeignKey(Inscripcion, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "CrossFit"
-        verbose_name_plural = "CrossFit"
-    def __str__(self):
-        return self.idAccesorios, self.idProducto, self.idInscripcion
