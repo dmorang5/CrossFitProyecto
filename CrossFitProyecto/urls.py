@@ -19,7 +19,7 @@ from CrossFit.views import CrossFitView
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name="admin"),
     path('',CrossFitView.inicio,name="inicio" ),
     path('principal/', CrossFitView.principal, name="principal"),
     #Venta

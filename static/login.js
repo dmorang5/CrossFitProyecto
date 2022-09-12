@@ -4,7 +4,7 @@ function validate(){
     var password = document.getElementById("password").value;
     if (usuar == "Alex" && password == "123"){
         alert("Ingreso exitosamente");
-        window.location="principal";
+        window.location="admin";
         return false;
     }
     else {
